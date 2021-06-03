@@ -1,8 +1,7 @@
 <template>
-    <div class="tag">
-        这是tag标签页
-        <Nav></Nav>
-    </div>
+    <Layout>
+        <p>Tag.vue</p>
+    </Layout>
 </template>
 
 <script>

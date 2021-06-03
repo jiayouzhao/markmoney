@@ -1,8 +1,7 @@
 <template>
-    <div class="writer">
-        这是writer页
-        <Nav></Nav>
-    </div>
+    <Layout>
+        <p>Writer.vue</p>
+    </Layout>
 </template>
 
 <script>
