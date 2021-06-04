@@ -11,29 +11,14 @@ export default {
 </script>
 
 <style lang="scss">
-*{
-    margin:0px;
-    padding:0px;
-    box-sizing:border-box;
-}
+@import "~@/assets/style/reset.scss";
+@import "~@/assets/style/share.scss";
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: $font-hei;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  font-size:16px;
+  line-height:1.5;
 }
 </style>
