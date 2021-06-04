@@ -10,35 +10,127 @@
             <span>住</span>
             <span>行</span>
             <span>衣</span>
-            <span>衣</span>
-            <span>食</span>
-            <span>住</span>
-            <span>行</span><span>衣</span>
-            <span>食</span>
-            <span>住</span>
-            <span>行</span><span>衣</span>
-            <span>食</span>
-            <span>住</span>
-            <span>行</span><span>衣</span>
-            <span>食</span>
-            <span>住</span>
-            <span>行</span><span>衣</span>
-            <span>食</span>
-            <span>住</span>
-            <span>行</span><span>衣</span>
-            <span>食</span>
-            <span>住</span>
-            <span>行</span><span>衣</span>
-            <span>食</span>
-            <span>住</span>
-            <span>行</span><span>衣</span>
-            <span>食</span>
-            <span>住</span>
-            <span>行</span><span>衣</span>
             <span>食</span>
             <span>住</span>
             <span>行</span>
-           
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            <span>衣</span>
+            <span>食</span>
+            <span>住</span>
+            <span>行</span>
+            
+            
         </div>
         <a href="javascript:;">新增标签</a>
     </div>
@@ -55,7 +147,6 @@ export default {
     padding:10px 15px;
     .tags{
         margin-bottom:15px;
-    
         span{
             display:inline-block;
             background:#D9D9D9;

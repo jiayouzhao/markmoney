@@ -40,6 +40,7 @@ export default {
 .nav{
     box-shadow:0 0 10px rgba(0,0,0,0.08);
     display:flex;
+    flex-shrink: 0;
 }
 .red{
     color:red;

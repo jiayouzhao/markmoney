@@ -19,7 +19,7 @@ export default {
     background:#F5F5F5;
     height:60px;
     padding-left:15px;
-    
+    flex-shrink: 0;
     label{
         display:flex;
         height:60px;

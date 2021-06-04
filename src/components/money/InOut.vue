@@ -18,6 +18,7 @@ export default {
     height:60px;
     line-height:60px;
     align-items:center;
+    flex-shrink: 0;
     div{
         width:50%;
         height:100%;
