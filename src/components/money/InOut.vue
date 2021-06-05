@@ -1,14 +1,47 @@
 <template>
     <div class="InOutWrapper">
-        <div class="moneyIn selected">支出</div>
-        <div class="moneyOut">收入</div>
+        <div class="moneyIn" 
+        :class="type==='-' && 'selected'"
+        @click="toggleType('-')">支出</div>
+        <div class="moneyOut" :class="type==='+' && 'selected'"
+        @click="toggleType('+')">收入</div>
     </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+
+import Vue from "vue"
+import { Component } from "vue-property-decorator";
+
+const InOutProps  = Vue.extend({
+    props:{
+        name:String
+    }
+})
+
+@Component 
+
+export default class InOut extends InOutProps{
+    type = "-";
     
+    toggleType(type: string){
+        this.type = type;
+    }
 }
+
+
+/* export default {
+    data(){
+        return {
+            type:'-'
+        }
+    },
+    methods:{
+        toggleType(type){
+            this.type = type === "-" ? "+" : "-"
+        }
+    }
+} */
 </script>
 
 <style lang="scss" scoped>

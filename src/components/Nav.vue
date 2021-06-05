@@ -45,4 +45,4 @@ export default {
 .red{
     color:red;
 }
-</style>
+</style> 
