@@ -13,7 +13,13 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 
-@Component
+@Component({
+    watch:{
+        value(value){
+            this.$emit("update:updateNotes",value)
+        }
+    }
+})
 
 export default class Notes extends Vue {
     value="";

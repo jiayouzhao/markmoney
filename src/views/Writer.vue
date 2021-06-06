@@ -1,9 +1,14 @@
 <template>
     <Layout classPrefix="writeLayout">
-        <ShowTag :tags="tags" :addTag.sync="tags"></ShowTag>
-        <Notes></Notes>
-        <InOut></InOut>
-        <Number></Number>
+        {{record}}
+        <ShowTag 
+        :tags="record.tags" 
+        :addTag.sync="record.tags"
+        :selectedTags.sync="record.selectedTags"
+        ></ShowTag>
+        <Notes :updateNotes.sync="record.notes"></Notes>
+        <InOut :type.sync="record.inout"></InOut>
+        <Number :amount.sync="record.amount"></Number>
     </Layout>
 </template>
 
@@ -15,16 +20,29 @@ import Number from "@/components/money/Number.vue"
 import ShowTag from "@/components/money/ShowTag.vue"
 import Component from 'vue-class-component';
 
+type Record = {
+    tags:string[];
+    selectedTags:string[];
+    notes:string;
+    inout:string;
+    amount:string;
+}
 
 @Component({
     components:{
         InOut,Notes,Number,ShowTag
     }
 })
+
 export default class Writer extends Vue{
-    
-    tags = ["衣","食","住","行"]
-    
+    record:Record = {
+        tags : ["衣","食","住","行","玩"],
+        selectedTags:[],
+        notes:'',
+        inout:"-",
+        amount:'0'
+    }
+
 }
 </script>
 

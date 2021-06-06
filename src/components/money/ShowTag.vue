@@ -34,6 +34,7 @@ export default class ShowTag extends ShowTagProps {
         } else {
             this.selectArray.push(tag);
         }
+        this.$emit("update:selectedTags",this.selectArray)
     }
     addTag(){
         let name = window.prompt("请输入标签名")!;

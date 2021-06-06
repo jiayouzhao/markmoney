@@ -25,10 +25,16 @@
 import Vue from 'vue';
 import { Component } from 'vue-property-decorator';
 
+const NumberProps = Vue.extend({
+    props:{
+        amount:String
+    }
+})
+
 @Component
 
-export default class Number extends Vue{
-    output = "0";
+export default class Number extends NumberProps{
+    output = this.amount;
     inputNumber(event: MouseEvent){
         let clickBtn = (event.target as HTMLButtonElement)
         let inputNum = clickBtn.textContent!;
@@ -53,9 +59,7 @@ export default class Number extends Vue{
         if(this.output.length >= 16){
             return;
         }
-        if(clickBtn === okBtn){
-            return 
-        }
+        
         if(this.output === "0"){
             if('0123456789'.indexOf(inputNum)>=0){
                 this.output = inputNum;
@@ -65,7 +69,12 @@ export default class Number extends Vue{
         if(this.output.indexOf(".")>=0 && inputNum === "."){
             return 
         }
+        if(clickBtn === okBtn){
+            this.$emit("update:amount",this.output)
+            return ;
+        }
         this.output += inputNum;
+        
     }
 }
 

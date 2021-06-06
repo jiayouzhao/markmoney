@@ -15,33 +15,18 @@ import { Component } from "vue-property-decorator";
 
 const InOutProps  = Vue.extend({
     props:{
-        name:String
+        type:String
     }
 })
 
 @Component 
 
 export default class InOut extends InOutProps{
-    type = "-";
     
     toggleType(type: string){
-        this.type = type;
+        this.$emit("update:type",type)
     }
 }
-
-
-/* export default {
-    data(){
-        return {
-            type:'-'
-        }
-    },
-    methods:{
-        toggleType(type){
-            this.type = type === "-" ? "+" : "-"
-        }
-    }
-} */
 </script>
 
 <style lang="scss" scoped>
