@@ -70,7 +70,9 @@ export default class Number extends NumberProps{
             return 
         }
         if(clickBtn === okBtn){
-            this.$emit("update:amount",this.output)
+            this.$emit("update:amount",this.output);
+            this.$emit("submit");
+            this.output = "0";
             return ;
         }
         this.output += inputNum;
