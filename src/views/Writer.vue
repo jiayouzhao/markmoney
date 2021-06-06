@@ -1,6 +1,6 @@
 <template>
     <Layout classPrefix="writeLayout">
-        <ShowTag></ShowTag>
+        <ShowTag :tags="tags" :addTag.sync="tags"></ShowTag>
         <Notes></Notes>
         <InOut></InOut>
         <Number></Number>
@@ -14,6 +14,11 @@ import Number from "@/components/money/Number.vue"
 import ShowTag from "@/components/money/ShowTag.vue"
 
 export default {
+    data(){
+        return {
+            tags:["衣","食","住","行"]
+        }
+    },
     components:{
         InOut,Notes,Number,ShowTag
     }
