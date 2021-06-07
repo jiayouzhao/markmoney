@@ -5,9 +5,9 @@
         :addTag.sync="tags"
         :selectedTags.sync="record.selectedTags"
         ></ShowTag>
-        <Notes :updateNotes.sync="record.notes"></Notes>
+        <Notes :notes.sync="record.notes"></Notes>
         <InOut :type.sync="record.inout"></InOut>
-        <Number :amount.sync="record.amount" @submit="saveRecord"></Number>
+        <Number :amount.sync="record.amount"  @submit="saveRecord"></Number>
     </Layout>
 </template>
 
@@ -18,13 +18,6 @@ import Notes from "@/components/money/Notes.vue"
 import Number from "@/components/money/Number.vue"
 import ShowTag from "@/components/money/ShowTag.vue"
 import Component from 'vue-class-component';
-
-type Record = {
-    selectedTags:string[];
-    notes:string;
-    inout:string;
-    amount:string;
-}
 
 @Component<Writer>({
     components:{
@@ -39,9 +32,9 @@ type Record = {
 
 export default class Writer extends Vue{
     localRecord = localStorage.getItem("recordList");
-    tags = this.localRecord? JSON.parse(this.localRecord)[0] : ["衣","食","住","行","玩"];  
+    tags = this.localRecord? JSON.parse(this.localRecord)[0] : ["衣","食","住","行"];  
     recordList= this.localRecord ? JSON.parse(this.localRecord) : [this.tags];
-    record:Record = {
+    record:RecordItem = {
         selectedTags:[],
         notes:'',
         inout:"-",
@@ -51,6 +44,7 @@ export default class Writer extends Vue{
         let copyRecord = JSON.parse(JSON.stringify(this.record));
         this.recordList.push(copyRecord)
         localStorage.setItem('recordList',JSON.stringify(this.recordList));
+        
     }
 }
 </script>

@@ -13,16 +13,27 @@
 import Vue from "vue";
 import Component from "vue-class-component";
 
-@Component({
+let NotesProps = Vue.extend({
+    props:{
+        notes:String
+    }
+})
+
+@Component<Notes>({
     watch:{
         value(value){
-            this.$emit("update:updateNotes",value)
+            this.$emit("update:notes",value)
+        },
+        notes(value){
+            this.value = value;
         }
     }
 })
 
-export default class Notes extends Vue {
-    value="";
+export default class Notes extends NotesProps {
+    value=this.notes;
+    
+    
 }
 </script>
 
