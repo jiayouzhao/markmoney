@@ -13,10 +13,11 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import InOut from "@/components/money/InOut.vue"
-import Notes from "@/components/money/Notes.vue"
-import Number from "@/components/money/Number.vue"
-import ShowTag from "@/components/money/ShowTag.vue"
+import InOut from "@/components/money/InOut.vue";
+import Notes from "@/components/money/Notes.vue";
+import Number from "@/components/money/Number.vue";
+import ShowTag from "@/components/money/ShowTag.vue";
+import tagsModel from '@/tagsModel';
 import Component from 'vue-class-component';
 
 @Component<Writer>({
@@ -25,16 +26,17 @@ import Component from 'vue-class-component';
     },
     watch:{
         tags(value){
-             this.recordList[0] = value;
+            //console.log(value);
+            tagsModel.save(value);
         }
     }
 })
 
 export default class Writer extends Vue{
     localRecord = localStorage.getItem("recordList");
-    tags = this.localRecord? JSON.parse(this.localRecord)[0] : ["衣","食","住","行"];  
-    recordList= this.localRecord ? JSON.parse(this.localRecord) : [this.tags];
-    record:RecordItem = {
+    tags = tagsModel.get();
+    recordList= this.localRecord ? JSON.parse(this.localRecord) : [];
+    record = {
         selectedTags:[],
         notes:'',
         inout:"-",
