@@ -2,10 +2,10 @@
     <div class="showTag">
         <ul class="tags">
             <li 
-            v-for="(item) in tags" :key="item"
+            v-for="(item) in tags" :key="item.id"
             :class="{selected:selectArray.indexOf(item)>=0}"
             @click="toggle(item)"
-            >{{item}}</li>
+            >{{item.name}}</li>
 
         </ul>
         <a href="javascript:;" @click="addTag">新增标签</a>
@@ -16,6 +16,11 @@
 import Vue from 'vue';
 import Component from 'vue-class-component';
 
+interface tagItem {
+    id:number;
+    name:string;
+}
+
 const ShowTagProps = Vue.extend({
     props:{
         tags:Array
@@ -25,9 +30,11 @@ const ShowTagProps = Vue.extend({
 @Component
 
 export default class ShowTag extends ShowTagProps {
-    selectArray:string[] = [];
-    toggle(tag:string){
+    selectArray:tagItem[] = [];
+    toggle(tag:tagItem){
+        
         let index = this.selectArray.indexOf(tag);
+        console.log(index);
         if(index>=0){
             this.selectArray.splice(index,1)
 
@@ -42,7 +49,7 @@ export default class ShowTag extends ShowTagProps {
         if(name.length === 0){
             alert("标签名不正确");
         }
-        this.$emit("update:addTag",[...this.tags,name])
+        this.$emit("update:addTag",[...this.tags,{id:this.tags.length,name}])
     }
 }
 </script>

@@ -5,6 +5,7 @@ import Tag from '@/views/Tag.vue'
 import Writer from '@/views/Writer.vue'
 import Statistics from '@/views/Statistics.vue'
 import Warn from '@/views/Warn.vue'
+import Editor from "@/views/Editor.vue"
 
 Vue.use(VueRouter)
 
@@ -17,6 +18,10 @@ const routes: Array<RouteConfig> = [
     path: '/tag',
     name: 'Tag',
     component: Tag
+  },
+  {
+      path:'/tag/editor/:id',
+      component:Editor
   },
   {
     path: '/writer',

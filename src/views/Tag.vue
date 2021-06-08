@@ -1,12 +1,12 @@
 <template>
     <Layout >
         <div class="tagWrapper">
-            <ul>
-                <li v-for="item in tags" :key="item">
-                    <span>{{item}}</span>
+            <div class="ulList">
+                <router-link class="liList" :to="`tag/editor/${item.id}`" v-for="item in tags" :key="item.id">
+                    <span>{{item.name}}</span>
                     <Icon class="rightIcon" name="right"></Icon>
-                </li>
-            </ul>
+                </router-link>
+            </div>
             <div class="createBtnWrapper">
                 <span class="createBtn" @click="createTag">
                     新建标签
@@ -39,16 +39,18 @@ export default class Tag extends Vue {
 </script>
 
 <style lang="scss" scoped>
-ul{
+.ulList{
     background:#fff;
     padding:0 15px;
-    li{ 
+    .liList{ 
         display:flex;
         font-size:16px;
         justify-content:space-between;
         align-items:center;
         height:50px;
         border-bottom:1px solid #eee;
+        color:#000;
+        padding:0 15px;
         .rightIcon{
             width:25px;
             height:25px;

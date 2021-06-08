@@ -6,8 +6,8 @@ type RecordItem = {
 }
 
 type TagsItem = {
-    data:string[];
-    get:()=>string[];
+    data:object[];
+    get:()=>object[];
     create:(name:string) => void;
-    save: (tags:string[]) => void;
+    save: (tags:object[]) => void;
 }

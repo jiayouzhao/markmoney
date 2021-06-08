@@ -26,7 +26,7 @@ import Component from 'vue-class-component';
     },
     watch:{
         tags(value){
-            //console.log(value);
+            
             tagsModel.save(value);
         }
     }
