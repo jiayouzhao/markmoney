@@ -26,9 +26,13 @@ export default {
     height:100vh;
     display:flex;
     flex-direction: column;
+   
 }
 .nav-wrapper .content{
+     overflow-y:auto;
     flex-grow: 1;
+    display:flex;
+    flex-direction: column;
 }
 
 </style>
