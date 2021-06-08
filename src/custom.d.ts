@@ -5,9 +5,17 @@ type RecordItem = {
     amount:string
 }
 
+type argumentItem={
+    id:number;
+    name:string;
+}
+
 type TagsItem = {
-    data:object[];
-    get:()=>object[];
+    data:argumentItem[];
+    get:()=>argumentItem[];
     create:(name:string) => void;
-    save: (tags:object[]) => void;
+    save: (tags:argumentItem[]) => void;
+    remove:(id:number)=>"success";
+    update:(tag:argumentItem,name:string)=>void;
+    find:(id:number)=>number
 }

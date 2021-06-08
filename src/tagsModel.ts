@@ -20,6 +20,27 @@ const tags: TagsItem = {
     save(tags){
         this.data = tags;
         localStorage.setItem(tagStroageName,JSON.stringify(tags));
+    },
+    find(id){
+        const index = this.data.findIndex(item=>{
+            return item.id === id
+        })
+        return index
+    },
+    remove(id){
+        const index = this.find(id);
+        this.data.splice(index,1);
+        this.save(this.data);
+        return "success"
+    },
+    update(tag,name){
+        this.data.forEach(item=>{
+            if(item.id === tag.id){
+                item.name = name
+                this.save(this.data)
+            }
+            
+        })
     }
 }
 
