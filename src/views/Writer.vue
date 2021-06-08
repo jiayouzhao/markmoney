@@ -5,7 +5,13 @@
         :addTag.sync="tags"
         :selectedTags.sync="record.selectedTags"
         ></ShowTag>
-        <Notes :notes.sync="record.notes"></Notes>
+        <div class="writerNotesWrapper">
+            <Notes :notes.sync="record.notes"
+                notesName="备注"
+                placeholder="在这里添加备注"
+            ></Notes>
+        </div>
+        
         <InOut :type.sync="record.inout"></InOut>
         <Number :amount.sync="record.amount"  @submit="saveRecord"></Number>
     </Layout>
@@ -51,6 +57,9 @@ export default class Writer extends Vue{
 }
 </script>
 
-<style scoped>
-
+<style lang="scss" scoped>
+ 
+.writerNotesWrapper{
+    background:#f5f5f5;
+}
 </style>
