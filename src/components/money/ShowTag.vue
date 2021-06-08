@@ -56,9 +56,15 @@ export default class ShowTag extends ShowTagProps {
 
 <style lang="scss" scoped>
 .showTag{
+    flex-grow:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
     padding:10px 15px;
+    background:#fff;
     .tags{
         margin-bottom:15px;
+        overflow-y:auto;
         li{
             display:inline-block;
             background:#D9D9D9;
@@ -72,9 +78,12 @@ export default class ShowTag extends ShowTagProps {
             }
         }
     }
-    a{
-       border-bottom:1px solid #DDDDDD;
-       padding:0 5px 3px;
+    >a{
+        display:inline-block;
+        border-bottom:1px solid #DDDDDD;
+        width:20%;
+        text-align:center;
+        padding:0 5px 3px;
     }
 }
 </style>
