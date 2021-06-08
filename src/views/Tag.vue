@@ -8,9 +8,8 @@
                 </router-link>
             </div>
             <div class="createBtnWrapper">
-                <span class="createBtn" @click="createTag">
-                    新建标签
-                </span>
+                <Button buttonName="新建标签" class="createBtn" @click.native="createTag">
+                </Button>
                 
             </div>
         </div>
@@ -55,18 +54,12 @@ export default class Tag extends Vue {
             width:25px;
             height:25px;
         }
-    }
+    } 
 }
 .createBtnWrapper{
     text-align:center;
     margin-top:40px;
-    .createBtn{
-       
-        background:#767676;
-        padding:15px 20px;
-        border-radius:8px;
-        color:#fff;
-    }
+    margin-bottom:40px;
 }
 
 </style>
