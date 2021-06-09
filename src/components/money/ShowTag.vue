@@ -1,9 +1,10 @@
 <template>
     <div class="showTag">
+    
         <ul class="tags">
             <li 
             v-for="(item) in tags" :key="item.id"
-            :class="{selected:selectArray.indexOf(item)>=0}"
+            :class="{selected:selectTagArray.indexOf(item)>=0}"
             @click="toggle(item)"
             >{{item.name}}</li>
 
@@ -23,33 +24,34 @@ interface tagItem {
 
 const ShowTagProps = Vue.extend({
     props:{
-        tags:Array
+        tags:Array,
+        selectArray:Array
     }
 })
 
 @Component
 
 export default class ShowTag extends ShowTagProps {
-    selectArray:tagItem[] = [];
+    get selectTagArray(){
+        return this.selectArray
+    }
     toggle(tag:tagItem){
         
-        let index = this.selectArray.indexOf(tag);
-        console.log(index);
+        let index = this.selectTagArray.indexOf(tag);
+      
         if(index>=0){
-            this.selectArray.splice(index,1)
+            this.selectTagArray.splice(index,1)
 
         } else {
-            this.selectArray.push(tag);
+            this.selectTagArray.push(tag);
         }
-        this.$emit("update:selectedTags",this.selectArray)
+        this.$emit("update:selectArray",this.selectTagArray)
     }
     addTag(){
         let name = window.prompt("请输入标签名")!;
-        if(name === null){return }
-        if(name.length === 0){
-            alert("标签名不正确");
-        }
-        this.$emit("update:addTag",[...this.tags,{id:this.tags.length,name}])
+        
+        this.$store.commit('create',name)
+        /* this.$emit("update:addTag",[...this.tags,{id:this.tags.length,name}]) */
     }
 }
 </script>

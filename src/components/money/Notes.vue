@@ -22,15 +22,20 @@ let NotesProps = Vue.extend({
 })
 
 @Component<Notes>({
-    watch:{
-        value(value){
-            this.$emit("update:notes",value)
+    computed:{
+        value:{
+            get(){
+                return this.notes;
+            },
+            set(newValue){
+                this.$emit("update:notes",newValue)
+            }
         }
     }
 })
 
 export default class Notes extends NotesProps {
-    value=this.notes; 
+
 }
 </script>
 

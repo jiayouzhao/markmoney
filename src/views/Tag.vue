@@ -19,20 +19,25 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from 'vue-class-component';
-import tagsModel from "@/tagsModel";
 
-@Component
+@Component({
+    computed:{
+        tags(){
+            return this.$store.state.tagsList.tagsList
+        }
+    }
+})
 
 export default class Tag extends Vue {
-    tags = tagsModel.get();
+
+    created(){
+        this.$store.commit("init")
+    }
     createTag(){
         let name = window.prompt("请输入标签名");
-        if(name === null){return}
-        if(name.length === 0){
-            alert("标签名不能为空")
-            return 
-        }
-        tagsModel.create(name);
+        
+        this.$store.commit("create",name)
+        
     }
 }
 </script>

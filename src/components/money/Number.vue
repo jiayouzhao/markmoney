@@ -34,14 +34,19 @@ let NumberProps = Vue.extend({
 @Component
 
 export default class NumberPad extends NumberProps{
-    output = this.amount;
+    get output(){
+        return this.amount;
+    }
+    set output(val){
+        this.$emit("update:amount",val)
+    }
     inputNumber(event: MouseEvent){
         let clickBtn = (event.target as HTMLButtonElement)
         let inputNum = clickBtn.textContent!;
         let deleteBtn = document.querySelector(".deleteBtn");
         let emptyBtn = document.querySelector(".emptyBtn");
         let okBtn = document.querySelector(".okBtn");
-        
+
         if(clickBtn === deleteBtn){
             
             if(this.output.length === 1){

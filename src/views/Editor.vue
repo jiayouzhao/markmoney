@@ -20,8 +20,12 @@
 <script lang="ts">
 import Vue from 'vue'
 import Component from 'vue-class-component';
-import tagsModel from "@/tagsModel";
 import Notes from "@/components/money/Notes.vue";
+
+type argumentItem={
+    id:number;
+    name:string;
+}
 
 @Component({
     components:{Notes}
@@ -30,32 +34,31 @@ export default class Editor extends Vue{
     tag:{id:number;name:string;}|null = null;
     created(){
         let id = this.$route.params.id;
-        let tagList = tagsModel.get();
-        
-        let indexTag = tagList.find(item=>{
-            
-            return item.id.toString() === id
+
+        this.$store.dispatch("getAction",id).then(()=>{
+            if(this.$store.state.tagsList.indexTag){
+                this.tag = this.$store.state.tagsList.indexTag
+            } else {
+                console.log(this);
+                this.$router.replace('/404');
+            }
+
         })
         
-        if(!indexTag){
-            this.$router.replace('/404');
-            return 
-        }
-        this.tag = indexTag;
-        console.log(indexTag);
     }
-    updateTag(e:string){
-        tagsModel.update(this.tag!,e);
+    updateTag(name:string){
+       
+        this.$store.commit('update',{tag:this.tag,name})
     }
     goBack(){
         this.$router.replace("/tag");
     }
     remove(){
         if(this.tag){
-            let result = tagsModel.remove(this.tag.id);
-            if(result === "success"){
-                this.$router.replace("/tag");
-            }
+            //let result = tagsModel.remove(this.tag.id);
+            this.$store.dispatch('removeAction',this.tag.id).then(()=>{
+                 this.$router.replace("/tag");
+            })
         }
     }
 }

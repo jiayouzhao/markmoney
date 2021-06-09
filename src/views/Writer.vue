@@ -1,9 +1,8 @@
 <template>
     <Layout classPrefix="writeLayout">
         <ShowTag 
-        :tags="tags" 
-        :addTag.sync="tags"
-        :selectedTags.sync="record.selectedTags"
+        :tags="tags"
+        :selectArray.sync ="selectArray" 
         ></ShowTag>
         <div class="writerNotesWrapper">
             <Notes :notes.sync="record.notes"
@@ -23,8 +22,12 @@ import InOut from "@/components/money/InOut.vue";
 import Notes from "@/components/money/Notes.vue";
 import Number from "@/components/money/Number.vue";
 import ShowTag from "@/components/money/ShowTag.vue";
-import tagsModel from '@/tagsModel';
 import Component from 'vue-class-component';
+
+interface tagItem {
+    id:number;
+    name:string;
+}
 
 @Component<Writer>({
     components:{
@@ -32,26 +35,34 @@ import Component from 'vue-class-component';
     },
     watch:{
         tags(value){
-            
-            tagsModel.save(value);
+            this.$store.commit('save',value)
         }
     }
 })
 
 export default class Writer extends Vue{
-    localRecord = localStorage.getItem("recordList");
-    tags = tagsModel.get();
-    recordList= this.localRecord ? JSON.parse(this.localRecord) : [];
+    selectArray:tagItem[]=[];
+    tags = undefined;
+    
+    
     record = {
-        selectedTags:[],
+        selectedTags:this.selectArray,
         notes:'',
         inout:"-",
         amount:'0'
     }
+    created(){
+        
+        this.$store.commit('init');
+       this.tags = this.$store.state.tagsList.tagsList;
+    }
     saveRecord(){
-        let copyRecord = JSON.parse(JSON.stringify(this.record));
-        this.recordList.push(copyRecord)
-        localStorage.setItem('recordList',JSON.stringify(this.recordList));
+        
+        this.$store.commit('saveRecord',this.record)
+        this.record.notes = '';
+        this.record.amount = "0";
+        this.record.inout = "-";
+        this.selectArray = [];
         
     }
 }

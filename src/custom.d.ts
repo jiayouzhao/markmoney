@@ -5,6 +5,15 @@ type RecordItem = {
     amount:string
 }
 
+type RecordState = {
+    recordList:RecordItem[]
+}
+
+type TagState = {
+    tagsList:argumentItem[],
+    indexTag:argumentItem |undefined
+}
+
 type argumentItem={
     id:number;
     name:string;

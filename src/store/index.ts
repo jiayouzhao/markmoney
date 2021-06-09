@@ -1,15 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import recordsList from "@/store/modules/recordList";
+import tagsList from "@/store/modules/tagsList";
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: {
+  /* state: {
+      recordList:JSON.parse(localStorage.getItem("recordList") || `[]`) 
   },
   mutations: {
-  },
-  actions: {
-  },
-  modules: {
+      
+  } */
+  modules:{
+      recordsList,
+      tagsList
   }
 })
