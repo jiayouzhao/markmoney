@@ -1,3 +1,4 @@
+import dayjs from "dayjs"
 
 export default {
     state:()=>(
@@ -7,7 +8,9 @@ export default {
     ),
     mutations:{
         saveRecord(state:RecordState,record:RecordItem){
-            state.recordList.push(record);
+            const copyRecord = JSON.parse(JSON.stringify(record))
+            copyRecord.createAd = dayjs(new Date()).format();
+            state.recordList.push(copyRecord);
             localStorage.setItem('recordList',JSON.stringify(state.recordList))
         }
     }

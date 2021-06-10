@@ -23,6 +23,7 @@ import Notes from "@/components/money/Notes.vue";
 import Number from "@/components/money/Number.vue";
 import ShowTag from "@/components/money/ShowTag.vue";
 import Component from 'vue-class-component';
+import dayjs from "dayjs"
 
 interface tagItem {
     id:number;
@@ -43,8 +44,7 @@ interface tagItem {
 export default class Writer extends Vue{
     selectArray:tagItem[]=[];
     tags = undefined;
-    
-    
+
     record = {
         selectedTags:this.selectArray,
         notes:'',
@@ -54,7 +54,7 @@ export default class Writer extends Vue{
     created(){
         
         this.$store.commit('init');
-       this.tags = this.$store.state.tagsList.tagsList;
+        this.tags = this.$store.state.tagsList.tagsList;
     }
     saveRecord(){
         
