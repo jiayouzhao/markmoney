@@ -52,8 +52,7 @@ export default class Statistic extends Vue {
     type = "-";
     recordStore:RecordItem[] = this.$store.state.recordsList.recordList;
     get recordList(){
-    
-        
+
         let newList  = this.recordStore.filter(item=>{
             return item.inout === this.type
         }).sort((a,b)=>{
@@ -103,20 +102,11 @@ export default class Statistic extends Vue {
         }
     }
     tagShow(tags:argumentItem[]){
-        
-        let allName;
-        if(tags.length){
-            allName = tags.reduce((tagsall,item)=>{
-                return tagsall + item.name
-            },"")
-        } else {
-            allName = "无"
-        }
-        return allName
+    
+        return tags.length ? tags.reduce((tagsall,item)=>{return tagsall + item.name},"") : "无"
     }
     toggleType(type:string){
         this.type = type;
-        
     }
 }
 </script>
