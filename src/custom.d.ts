@@ -3,6 +3,7 @@ type RecordItem = {
     notes:string;
     inout:string;
     amount:string;
+    createAd:string;
 }
 
 type RecordState = {

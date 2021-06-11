@@ -8,7 +8,7 @@ export default {
     ),
     mutations:{
         saveRecord(state:RecordState,record:RecordItem){
-            const copyRecord = JSON.parse(JSON.stringify(record))
+            const copyRecord = JSON.parse(JSON.stringify(record)) as RecordItem;
             copyRecord.createAd = dayjs(new Date()).format();
             state.recordList.push(copyRecord);
             localStorage.setItem('recordList',JSON.stringify(state.recordList))

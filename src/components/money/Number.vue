@@ -35,6 +35,7 @@ let NumberProps = Vue.extend({
 
 export default class NumberPad extends NumberProps{
     get output(){
+        
         return this.amount;
     }
     set output(val){
@@ -62,6 +63,7 @@ export default class NumberPad extends NumberProps{
             return 
         }
         if(this.output.length >= 16){
+            alert("超出上限")
             return;
         }
         
@@ -78,11 +80,12 @@ export default class NumberPad extends NumberProps{
         
         if(clickBtn === okBtn){
             if(this.output[this.output.length-1]==="."){
-               this.output = this.output.slice(0,-1)
+               this.output = this.output.slice(0,-1);
+         
             }
-            this.$emit("update:amount",this.output);
+           
             this.$emit("submit");
-            //this.output = "0";
+            
             return ;
         }
         this.output += inputNum;
