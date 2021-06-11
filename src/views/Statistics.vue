@@ -52,7 +52,7 @@ export default class Statistic extends Vue {
     type = "-";
     recordStore:RecordItem[] = this.$store.state.recordsList.recordList;
     get recordList(){
-        //this.type = type
+    
         
         let newList  = this.recordStore.filter(item=>{
             return item.inout === this.type
@@ -78,17 +78,13 @@ export default class Statistic extends Vue {
         }
 
         result.forEach(group=>{
-            //group.title = dayjs(group.title).format("YYYY年M月D日");
+    
             group.total =group.items.reduce((sum,item)=>{
                 
                 return sum + parseFloat(item.amount)*10000
             },0)/10000
         })
         return result
-    }
-    created(){
-
-        //console.log(this.recordList);
     }
     dateSet(title:string){
         let now = new Date();
@@ -107,7 +103,7 @@ export default class Statistic extends Vue {
         }
     }
     tagShow(tags:argumentItem[]){
-        //console.log(tags);
+        
         let allName;
         if(tags.length){
             allName = tags.reduce((tagsall,item)=>{
@@ -120,7 +116,7 @@ export default class Statistic extends Vue {
     }
     toggleType(type:string){
         this.type = type;
-        //console.log(result);
+        
     }
 }
 </script>
